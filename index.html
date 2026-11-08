@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script>
+window.onerror=function(msg,src,line,col,err){window.parent.postMessage({type:'app-error',message:msg,source:src,lineno:line,colno:col,stack:err&&err.stack||''},'*');};
+window.onunhandledrejection=function(e){window.parent.postMessage({type:'app-error',message:'Unhandled promise rejection: '+(e.reason&&e.reason.message||e.reason||'unknown'),stack:e.reason&&e.reason.stack||''},'*');};
+window.addEventListener('error',function(e){var t=e&&e.target;if(t&&t!==window&&t.tagName==='SCRIPT'){var u=t.src||'';window.parent.postMessage({type:'app-error',message:'Failed to load script'+(u?': '+u:' (inline module)'),source:u},'*');}},true);
+(function(){var _f=window.fetch;window.fetch=function(){var a=arguments,u=typeof a[0]==='string'?a[0]:(a[0]&&a[0].url)||'';var p=_f.apply(this,a);p.then(function(r){if(r.status===500){r.clone().text().then(function(b){window.parent.postMessage({type:'fetch-error',url:u,status:500,body:b},'*');}).catch(function(){window.parent.postMessage({type:'fetch-error',url:u,status:500,body:''},'*');});}}).catch(function(e){window.parent.postMessage({type:'fetch-error',url:u,status:0,body:e.message||'fetch failed'},'*');});return p;};})();
+</script>
+<script src="https://builder.puter.com/runtime.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SKYVEIL — WE CREATE THE NEXT STAR.</title>
+<meta name="description" content="SKYVEIL 크루 온라인 면접 신청. BJ·스트리머, 보컬, 댄서, 크리에이터, 편집자, 매니저 모집.">
+<meta name="theme-color" content="#0B1A33">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: { colors: { navy: '#0B1A33', navy2: '#12264A', sky: '#9DBCE6', mist: '#EEF3FA', champ: '#E9DCC3', gold: '#C9AE7E' } } } };
+</script>
+<link rel="stylesheet" href="styles.css">
+<script src="config.js"></script>
+    <!-- puter-pwa: generated, do not edit -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon-180.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="SKYVEIL">
+    <!-- /puter-pwa -->
+</head>
+<body class="bg-white text-navy">
+
+<!-- NAV -->
+<header id="nav" class="fixed top-0 inset-x-0 z-40 transition-colors duration-300">
+  <div class="max-w-6xl mx-auto px-5 md:px-8 h-16 md:h-20 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-2.5">
+      <svg viewBox="0 0 64 64" class="w-7 h-7"><path d="M32 8 L36 28 L56 32 L36 36 L32 56 L28 36 L8 32 L28 28 Z" fill="currentColor"/></svg>
+      <span class="font-display text-xl tracking-[.28em] font-semibold">SKYVEIL</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-9 text-[13px] tracking-[.18em]">
+      <a href="#about" class="opacity-80 hover:opacity-100">ABOUT</a>
+      <a href="#fields" class="opacity-80 hover:opacity-100">FIELDS</a>
+      <a href="#process" class="opacity-80 hover:opacity-100">PROCESS</a>
+      <a href="#faq" class="opacity-80 hover:opacity-100">FAQ</a>
+    </nav>
+    <a href="#apply" class="nav-cta text-[13px] font-semibold tracking-wider px-5 py-2.5 rounded-full border transition-colors">면접 신청</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="relative min-h-[100svh] hero-bg flex items-center text-white overflow-hidden">
+  <div class="absolute inset-0 hero-veil"></div>
+  <div class="absolute top-[22%] right-[18%] w-1.5 h-1.5 bg-white rounded-full twinkle"></div>
+  <div class="absolute top-[34%] left-[12%] w-1 h-1 bg-white rounded-full twinkle" style="animation-delay:1.2s"></div>
+  <div class="absolute top-[16%] left-[40%] w-1 h-1 bg-white rounded-full twinkle" style="animation-delay:2s"></div>
+  <div class="relative max-w-6xl mx-auto px-5 md:px-8 w-full pt-24 pb-16">
+    <p class="reveal text-[11px] md:text-xs tracking-luxe text-champ mb-6">SKYVEIL CREW · 2026 OPEN AUDITION</p>
+    <h1 class="reveal font-display font-medium leading-[0.95] text-[52px] sm:text-7xl md:text-8xl lg:text-[112px]">
+      WE CREATE<br>THE <em class="italic text-champ">NEXT</em> STAR.
+    </h1>
+    <p class="reveal mt-8 max-w-md text-[15px] md:text-base leading-relaxed text-white/85">
+      하늘 너머의 무대를 함께 그릴 사람을 찾습니다.<br class="hidden sm:block">
+      당신의 재능이 가장 높은 곳에서 빛나도록, SKYVEIL이 함께합니다.
+    </p>
+    <div class="reveal mt-10 flex flex-col sm:flex-row gap-3">
+      <a href="#apply" class="inline-flex items-center justify-center gap-2 bg-white text-navy font-semibold rounded-full px-8 py-4 hover:bg-champ transition-colors">
+        온라인 면접 신청 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+      <a href="#fields" class="inline-flex items-center justify-center gap-2 glass rounded-full px-8 py-4 font-medium hover:bg-white/15 transition-colors">모집 분야 보기</a>
+    </div>
+  </div>
+  <a href="#about" class="absolute bottom-7 left-1/2 -translate-x-1/2 text-white/70 flex flex-col items-center gap-2 text-[10px] tracking-luxe">
+    SCROLL <i data-lucide="chevron-down" class="w-4 h-4"></i>
+  </a>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 md:py-36 bg-white">
+  <div class="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-12 md:gap-8">
+    <div class="md:col-span-5 reveal">
+      <p class="text-[11px] tracking-luxe text-gold mb-5">ABOUT SKYVEIL</p>
+      <h2 class="font-display text-4xl md:text-5xl leading-tight">Beyond the veil,<br><em class="italic">into the sky.</em></h2>
+    </div>
+    <div class="md:col-span-7 reveal">
+      <p class="text-lg md:text-xl leading-relaxed text-navy/80">
+        SKYVEIL은 방송, 음악, 퍼포먼스, 콘텐츠를 아우르는 크리에이티브 크루입니다.
+        체계적인 트레이닝과 기획, 전문 제작 지원으로 한 사람의 가능성을 하나의 브랜드로 완성합니다.
+      </p>
+      <div class="mt-12 grid grid-cols-3 border-t border-navy/10">
+        <div class="pt-6 pr-3"><p class="font-display text-4xl md:text-5xl">6</p><p class="mt-1 text-xs md:text-sm text-navy/60">모집 분야</p></div>
+        <div class="pt-6 px-3 border-l border-navy/10"><p class="font-display text-4xl md:text-5xl">1:1</p><p class="mt-1 text-xs md:text-sm text-navy/60">전담 매니지먼트</p></div>
+        <div class="pt-6 pl-3 border-l border-navy/10"><p class="font-display text-4xl md:text-5xl">100%</p><p class="mt-1 text-xs md:text-sm text-navy/60">온라인 접수</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIELDS -->
+<section id="fields" class="py-24 md:py-32 bg-mist">
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16 reveal">
+      <div>
+        <p class="text-[11px] tracking-luxe text-gold mb-5">RECRUITING FIELDS</p>
+        <h2 class="font-display text-4xl md:text-5xl">Find your constellation.</h2>
+      </div>
+      <p class="text-navy/60 max-w-sm text-sm md:text-base">관심 있는 분야를 선택하면 신청서에 자동으로 반영됩니다.</p>
+    </div>
+    <div id="fieldGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" class="py-24 md:py-32 bg-navy text-white">
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+    <div class="reveal mb-14">
+      <p class="text-[11px] tracking-luxe text-champ mb-5">PROCESS</p>
+      <h2 class="font-display text-4xl md:text-5xl">Four steps to the sky.</h2>
+    </div>
+    <ol class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden reveal">
+      <li class="bg-navy p-7 md:p-8"><span class="font-display text-champ text-2xl">01</span><h3 class="mt-6 font-semibold text-lg">온라인 신청</h3><p class="mt-2 text-sm text-white/60 leading-relaxed">신청서를 작성하고 접수번호를 받습니다.</p></li>
+      <li class="bg-navy p-7 md:p-8"><span class="font-display text-champ text-2xl">02</span><h3 class="mt-6 font-semibold text-lg">서류 검토</h3><p class="mt-2 text-sm text-white/60 leading-relaxed">지원 동기, 경력, 포트폴리오를 꼼꼼히 검토합니다.</p></li>
+      <li class="bg-navy p-7 md:p-8"><span class="font-display text-champ text-2xl">03</span><h3 class="mt-6 font-semibold text-lg">면접 안내</h3><p class="mt-2 text-sm text-white/60 leading-relaxed">남겨주신 연락 수단으로 면접 일정을 안내드립니다.</p></li>
+      <li class="bg-navy p-7 md:p-8"><span class="font-display text-champ text-2xl">04</span><h3 class="mt-6 font-semibold text-lg">크루 합류</h3><p class="mt-2 text-sm text-white/60 leading-relaxed">최종 합격 후 SKYVEIL과 함께 첫 비행을 시작합니다.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- APPLY -->
+<section id="apply" class="py-24 md:py-32 bg-white">
+  <div class="max-w-6xl mx-auto px-5 md:px-8 grid lg:grid-cols-12 gap-12">
+    <div class="lg:col-span-4 reveal">
+      <div class="lg:sticky lg:top-28">
+        <p class="text-[11px] tracking-luxe text-gold mb-5">APPLICATION</p>
+        <h2 class="font-display text-4xl md:text-5xl leading-tight">Your journey<br><em class="italic">starts here.</em></h2>
+        <p class="mt-6 text-navy/65 leading-relaxed">작성해 주신 정보는 면접 진행 목적에만 사용되며, 관리자 외에는 열람할 수 없습니다.</p>
+        <ul class="mt-8 space-y-3 text-sm text-navy/70">
+          <li class="flex items-center gap-3"><i data-lucide="shield-check" class="w-4 h-4 text-gold"></i>관리자 전용 암호화 보관</li>
+          <li class="flex items-center gap-3"><i data-lucide="clock-3" class="w-4 h-4 text-gold"></i>작성 소요 약 3분</li>
+          <li class="flex items-center gap-3"><i data-lucide="message-circle" class="w-4 h-4 text-gold"></i>검토 후 개별 연락</li>
+        </ul>
+      </div>
+    </div>
+
+    <form id="applyForm" class="lg:col-span-8 reveal bg-mist/60 border border-navy/5 rounded-3xl p-6 sm:p-8 md:p-10 space-y-8" novalidate>
+      <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div>
+        <label class="block text-sm font-semibold mb-2" for="f-name">활동명 <span class="text-gold">*</span></label>
+        <input id="f-name" name="name" class="input" maxlength="40" placeholder="예) 하늘별" autocomplete="nickname">
+        <p class="err text-xs text-[#D2546A] mt-1.5 hidden" data-for="name"></p>
+      </div>
+
+      <div>
+        <p class="block text-sm font-semibold mb-3">지원 분야 <span class="text-gold">*</span></p>
+        <div id="fieldChips" class="grid grid-cols-2 sm:grid-cols-3 gap-2.5"></div>
+        <p class="err text-xs text-[#D2546A] mt-1.5 hidden" data-for="field"></p>
+      </div>
+
+      <div>
+        <div class="flex items-baseline justify-between mb-2">
+          <label class="block text-sm font-semibold" for="f-motivation">지원 동기 <span class="text-gold">*</span></label>
+          <span class="text-xs text-navy/40"><span id="cnt-motivation">0</span>/2000</span>
+        </div>
+        <textarea id="f-motivation" name="motivation" class="input" maxlength="2000" placeholder="SKYVEIL에 지원하게 된 이유와 이루고 싶은 목표를 자유롭게 적어주세요."></textarea>
+        <p class="err text-xs text-[#D2546A] mt-1.5 hidden" data-for="motivation"></p>
+      </div>
+
+      <div>
+        <div class="flex items-baseline justify-between mb-2">
+          <label class="block text-sm font-semibold" for="f-career">활동 경력</label>
+          <span class="text-xs text-navy/40"><span id="cnt-career">0</span>/2000</span>
+        </div>
+        <textarea id="f-career" name="career" class="input" maxlength="2000" placeholder="방송, 공연, 제작 등 관련 경력이 있다면 적어주세요. (없으면 '신입')"></textarea>
+      </div>
+
+      <div>
+        <p class="block text-sm font-semibold mb-2">연락 수단 <span class="text-gold">*</span></p>
+        <div class="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-2.5">
+          <select id="f-contactType" name="contactType" class="input" aria-label="연락 수단 종류">
+            <option>카카오톡</option><option>디스코드</option><option>이메일</option><option>전화</option><option>인스타그램</option>
+          </select>
+          <input id="f-contact" name="contact" class="input" maxlength="120" placeholder="카카오톡 ID">
+        </div>
+        <p class="err text-xs text-[#D2546A] mt-1.5 hidden" data-for="contact"></p>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold mb-2" for="f-portfolio">포트폴리오 링크</label>
+        <div class="relative">
+          <i data-lucide="link-2" class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-navy/40"></i>
+          <input id="f-portfolio" name="portfolio" class="input !pl-11" maxlength="400" placeholder="https://youtube.com/@channel" inputmode="url">
+        </div>
+        <p class="err text-xs text-[#D2546A] mt-1.5 hidden" data-for="portfolio"></p>
+      </div>
+
+      <label class="flex items-start gap-3 text-sm text-navy/70 cursor-pointer">
+        <input id="f-agree" type="checkbox" class="mt-0.5 w-4 h-4 accent-[#0B1A33]">
+        <span>면접 진행을 위한 개인정보 수집·이용에 동의합니다. (보유기간: 전형 종료 후 6개월)</span>
+      </label>
+      <p class="err text-xs text-[#D2546A] -mt-6 hidden" data-for="agree"></p>
+
+      <div class="pt-2 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+        <p id="formError" class="text-sm text-[#D2546A] hidden"></p>
+        <button id="submitBtn" type="submit" class="btn-primary sm:ml-auto inline-flex items-center justify-center gap-2 px-10 py-4 font-semibold">
+          <span>지원서 제출</span><i data-lucide="send" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="py-24 md:py-32 bg-mist">
+  <div class="max-w-3xl mx-auto px-5 md:px-8">
+    <div class="text-center mb-12 reveal">
+      <p class="text-[11px] tracking-luxe text-gold mb-5">FAQ</p>
+      <h2 class="font-display text-4xl md:text-5xl">Questions</h2>
+    </div>
+    <div id="faqList" class="divide-y divide-navy/10 border-y border-navy/10 reveal"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-navy text-white/60">
+  <div class="max-w-6xl mx-auto px-5 md:px-8 py-12 flex flex-col md:flex-row gap-6 md:items-center justify-between text-sm">
+    <div class="flex items-center gap-2.5 text-white">
+      <svg viewBox="0 0 64 64" class="w-6 h-6"><path d="M32 8 L36 28 L56 32 L36 36 L32 56 L28 36 L8 32 L28 28 Z" fill="#E9DCC3"/></svg>
+      <span class="font-display text-lg tracking-[.28em]">SKYVEIL</span>
+    </div>
+    <p>© 2026 SKYVEIL Crew. All rights reserved.</p>
+    <a href="admin.html" class="inline-flex items-center gap-1.5 hover:text-white"><i data-lucide="lock" class="w-3.5 h-3.5"></i>관리자</a>
+  </div>
+</footer>
+
+<!-- SUCCESS MODAL -->
+<div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center p-5 bg-navy/70" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+  <div class="bg-white rounded-3xl max-w-md w-full p-8 md:p-10 text-center">
+    <div class="w-16 h-16 rounded-full bg-mist mx-auto flex items-center justify-center">
+      <svg viewBox="0 0 64 64" class="w-8 h-8 text-navy"><path d="M32 8 L36 28 L56 32 L36 36 L32 56 L28 36 L8 32 L28 28 Z" fill="currentColor"/></svg>
+    </div>
+    <p class="mt-6 text-[11px] tracking-luxe text-gold">APPLICATION RECEIVED</p>
+    <h3 id="successTitle" class="mt-3 text-2xl font-semibold">접수가 완료되었습니다</h3>
+    <p class="mt-3 text-navy/65 leading-relaxed text-[15px]"><b id="successName" class="text-navy"></b>님, SKYVEIL에 지원해 주셔서 감사합니다.<br>검토 후 남겨주신 연락처로 면접 일정을 안내드립니다.</p>
+    <div class="mt-7 bg-mist rounded-2xl py-4 px-5">
+      <p class="text-xs text-navy/50">접수번호</p>
+      <p id="successCode" class="mt-1 font-mono text-lg font-semibold tracking-wider"></p>
+    </div>
+    <button id="successClose" class="btn-primary w-full mt-7 py-3.5 font-semibold">확인</button>
+  </div>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script>
+window.onerror=function(msg,src,line,col,err){window.parent.postMessage({type:'app-error',message:msg,source:src,lineno:line,colno:col,stack:err&&err.stack||''},'*');};
+window.onunhandledrejection=function(e){window.parent.postMessage({type:'app-error',message:'Unhandled promise rejection: '+(e.reason&&e.reason.message||e.reason||'unknown'),stack:e.reason&&e.reason.stack||''},'*');};
+window.addEventListener('error',function(e){var t=e&&e.target;if(t&&t!==window&&t.tagName==='SCRIPT'){var u=t.src||'';window.parent.postMessage({type:'app-error',message:'Failed to load script'+(u?': '+u:' (inline module)'),source:u},'*');}},true);
+(function(){var _f=window.fetch;window.fetch=function(){var a=arguments,u=typeof a[0]==='string'?a[0]:(a[0]&&a[0].url)||'';var p=_f.apply(this,a);p.then(function(r){if(r.status===500){r.clone().text().then(function(b){window.parent.postMessage({type:'fetch-error',url:u,status:500,body:b},'*');}).catch(function(){window.parent.postMessage({type:'fetch-error',url:u,status:500,body:''},'*');});}}).catch(function(e){window.parent.postMessage({type:'fetch-error',url:u,status:0,body:e.message||'fetch failed'},'*');});return p;};})();
+</script>
+<script src="https://builder.puter.com/runtime.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SKYVEIL 관리자</title>
+<meta name="theme-color" content="#0B1A33">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: { colors: { navy: '#0B1A33', navy2: '#12264A', sky: '#9DBCE6', mist: '#EEF3FA', champ: '#E9DCC3', gold: '#C9AE7E' } } } };
+</script>
+<link rel="stylesheet" href="styles.css">
+<script src="config.js"></script>
+    <!-- puter-pwa: generated, do not edit -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon-180.png">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="SKYVEIL">
+    <!-- /puter-pwa -->
+</head>
+<body class="bg-[#F6F8FC] text-navy">
+
+<!-- LOGIN -->
+<main id="loginView" class="min-h-[100svh] grid lg:grid-cols-2 hidden">
+  <div class="hidden lg:block hero-bg relative">
+    <div class="absolute inset-0 hero-veil"></div>
+    <div class="relative h-full flex flex-col justify-between p-12 text-white">
+      <a href="index.html" class="font-display text-2xl tracking-[.28em]">SKYVEIL</a>
+      <p class="font-display text-6xl leading-none">WE CREATE<br>THE <em class="italic text-champ">NEXT</em> STAR.</p>
+    </div>
+  </div>
+  <div class="flex items-center justify-center p-6 bg-white">
+    <form id="loginForm" class="w-full max-w-sm">
+      <div class="w-12 h-12 rounded-full bg-navy text-champ flex items-center justify-center"><i data-lucide="lock-keyhole" class="w-5 h-5"></i></div>
+      <p class="mt-8 text-[11px] tracking-luxe text-gold">ADMIN CONSOLE</p>
+      <h1 class="mt-2 text-2xl font-semibold">관리자 로그인</h1>
+      <p class="mt-2 text-sm text-navy/60">지원자 정보는 인증된 관리자만 열람할 수 있습니다.</p>
+      <label for="pw" class="block mt-8 text-sm font-semibold mb-2">비밀번호</label>
+      <div class="relative">
+        <input id="pw" type="password" class="input pr-12" autocomplete="current-password" placeholder="관리자 비밀번호">
+        <button type="button" id="pwToggle" class="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-navy/50 hover:text-navy" aria-label="비밀번호 보기"><i data-lucide="eye" class="w-4 h-4"></i></button>
+      </div>
+      <p id="loginErr" class="text-sm text-[#D2546A] mt-3 hidden"></p>
+      <button id="loginBtn" class="btn-primary w-full mt-6 py-3.5 font-semibold inline-flex items-center justify-center gap-2">로그인</button>
+      <a href="index.html" class="mt-6 inline-flex items-center gap-1.5 text-sm text-navy/60 hover:text-navy"><i data-lucide="arrow-left" class="w-4 h-4"></i>사이트로 돌아가기</a>
+    </form>
+  </div>
+</main>
+
+<!-- DASHBOARD -->
+<div id="appView" class="hidden min-h-[100svh] flex-col">
+  <header class="bg-navy text-white sticky top-0 z-30">
+    <div class="px-4 md:px-8 h-16 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <svg viewBox="0 0 64 64" class="w-6 h-6"><path d="M32 8 L36 28 L56 32 L36 36 L32 56 L28 36 L8 32 L28 28 Z" fill="#E9DCC3"/></svg>
+        <span class="font-display text-lg tracking-[.28em]">SKYVEIL</span>
+        <span class="hidden sm:inline text-xs text-white/50 border-l border-white/15 pl-3 ml-1">지원자 관리</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <button id="refreshBtn" class="p-2.5 rounded-full hover:bg-white/10" aria-label="새로고침" title="새로고침"><i data-lucide="refresh-cw" class="w-4 h-4"></i></button>
+        <a href="index.html" target="_blank" class="p-2.5 rounded-full hover:bg-white/10" aria-label="사이트 보기" title="사이트 보기"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+        <button id="logoutBtn" class="ml-1 inline-flex items-center gap-2 text-sm px-4 py-2 rounded-full border border-white/20 hover:bg-white/10"><i data-lucide="log-out" class="w-4 h-4"></i><span class="hidden sm:inline">로그아웃</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex-1 px-4 md:px-8 py-6 md:py-8 max-w-[1500px] w-full mx-auto">
+    <!-- Stats -->
+    <div id="stats" class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3"></div>
+
+    <!-- Tabs -->
+    <div class="mt-6 flex items-center gap-1 bg-white border border-navy/5 rounded-full p-1 w-fit">
+      <button data-tab="list" class="tab px-5 py-2 rounded-full text-sm font-medium">지원서</button>
+      <button data-tab="schedule" class="tab px-5 py-2 rounded-full text-sm font-medium">면접 일정</button>
+    </div>
+
+    <!-- LIST TAB -->
+    <section id="tab-list" class="mt-5">
+      <div class="flex flex-col md:flex-row gap-2.5">
+        <div class="relative flex-1">
+          <i data-lucide="search" class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-navy/40"></i>
+          <input id="q" class="input !pl-11 !py-3" placeholder="활동명, 접수번호, 연락처, 내용으로 검색">
+        </div>
+        <div class="grid grid-cols-3 md:flex gap-2.5">
+          <select id="fField" class="input !py-3 md:w-40"><option value="">전체 분야</option></select>
+          <select id="fStatus" class="input !py-3 md:w-36"><option value="">전체 상태</option></select>
+          <select id="fSort" class="input !py-3 md:w-36"><option value="new">최신순</option><option value="old">오래된순</option><option value="name">이름순</option></select>
+        </div>
+      </div>
+
+      <div class="mt-4 grid lg:grid-cols-[minmax(0,1fr)_440px] gap-4 items-start">
+        <div class="bg-white border border-navy/5 rounded-2xl overflow-hidden">
+          <div class="hidden md:grid grid-cols-[1.4fr_1fr_1fr_1fr_110px] gap-4 px-5 py-3 text-xs font-semibold text-navy/50 border-b border-navy/5">
+            <span>지원자</span><span>분야</span><span>연락처</span><span>접수일</span><span>상태</span>
+          </div>
+          <div id="list" class="divide-y divide-navy/5"></div>
+          <div id="empty" class="hidden py-20 text-center text-navy/50">
+            <i data-lucide="inbox" class="w-8 h-8 mx-auto text-navy/25"></i>
+            <p class="mt-3 text-sm" id="emptyText">지원서가 없습니다.</p>
+          </div>
+          <div id="loading" class="py-20 flex justify-center"><i data-lucide="loader-circle" class="w-6 h-6 spin text-navy/40"></i></div>
+        </div>
+
+        <!-- Detail -->
+        <aside id="detailWrap" class="fixed inset-0 z-40 bg-navy/50 hidden lg:static lg:block lg:bg-transparent lg:z-auto">
+          <div id="detail" class="absolute inset-x-0 bottom-0 top-12 lg:static bg-white lg:border border-navy/5 rounded-t-3xl lg:rounded-2xl overflow-y-auto scroll-thin lg:max-h-[calc(100svh-120px)] lg:sticky lg:top-24"></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SCHEDULE TAB -->
+    <section id="tab-schedule" class="mt-5 hidden">
+      <div id="schedule" class="space-y-6"></div>
+    </section>
+  </div>
+</div>
+
+<!-- Confirm modal -->
+<div id="confirm" class="fixed inset-0 z-50 hidden items-center justify-center p-5 bg-navy/60">
+  <div class="bg-white rounded-2xl w-full max-w-sm p-6">
+    <div class="w-11 h-11 rounded-full bg-[#F7E8EB] text-[#A33A50] flex items-center justify-center"><i data-lucide="trash-2" class="w-5 h-5"></i></div>
+    <h3 class="mt-4 text-lg font-semibold">지원서를 삭제할까요?</h3>
+    <p class="mt-1.5 text-sm text-navy/60"><b id="confirmName"></b> 님의 지원서가 영구 삭제되며 되돌릴 수 없습니다.</p>
+    <div class="mt-6 grid grid-cols-2 gap-2">
+      <button id="confirmNo" class="py-3 rounded-full border border-navy/15 font-medium hover:bg-mist">취소</button>
+      <button id="confirmYes" class="py-3 rounded-full bg-[#A33A50] text-white font-semibold hover:opacity-90">삭제</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] bg-navy text-white text-sm px-5 py-3 rounded-full opacity-0 pointer-events-none translate-y-2"></div>
+
+<script type="module" src="admin.js"></script>
+</body>
+</html>
